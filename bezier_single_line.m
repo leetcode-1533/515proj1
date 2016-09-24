@@ -1,8 +1,4 @@
-% function [left, right] = bezier_single_line(b, t)
-clear
-    load('xy_sample.mat');
-    t = 0.5;
-%     xy = xy(:,1:4);
+function [left, right] = bezier_single_line(xy, t)
     n = size(xy, 2);
 
     temp_x = spalloc(n, n, n*(1+n)/2);
@@ -31,19 +27,5 @@ clear
         right(2, ii) = temp_y(n+1 - ii, ii);
     end
     
-    hold on 
-    t = 0:0.01:1;
-
-    plot(xy(1,:),xy(2,:),'r*');
-%     c_xy = bezier3(t, xy);
-%     plot(c_xy(1,:), c_xy(2,:))
-    
-    plot(left(1,:),left(2,:),'b');
-%     c_xy = bezier3(t, left);
-%     plot(c_xy(1,:), c_xy(2,:))
-% 
-    plot(right(1,:),right(2,:),'k');
-%     c_xy = bezier3(t, right);
-%     plot(c_xy(1,:), c_xy(2,:))
 
     
