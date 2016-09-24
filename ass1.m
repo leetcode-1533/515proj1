@@ -1,18 +1,23 @@
 clear
+% For 6 points at a minimum, 3 sements will be created.
+% For N points, N-3 semetns will be created
+
 % xy = [0.3, 0.7, 0.1, 0.8, 0.4;
 %        0.1, 0.6, 0.9, 0.5, 0.1];
-xy = zeros(2, 5);
-for i = 1:7
-    [xy(1,i), xy(2,i)] = ginput(1);
-end
-plot(xy(1,:),xy(2,:), 'r*');
+% xy = zeros(2, 5);
+% for i = 1:7
+%     [xy(1,i), xy(2,i)] = ginput(1);
+% end
+load('xy_sample.mat');
+xy = xy(:, 1:6);
+plot(xy(1,:),xy(2,:), 'r*-');
 
 N = size(xy, 2);
 b = zeros(4, N-2, 2);
 % First row
 b(1, 1, :) = xy(:, 1);
 b(2, 1, :) = xy(:, 2);
-b(3, 1, :) = (xy(:, 1) + xy(:, 2))./2;
+b(3, 1, :) = (xy(:, 2) + xy(:, 3))./2;
 b(4, 1, :) = 0.25*xy(:, 1) + 7*xy(:, 2)/12 + xy(:, 3)/6;
 b(1, 2, :) = b(4, 1, :);
 % last row
