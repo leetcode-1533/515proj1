@@ -10,10 +10,10 @@ clear
 % end
 load('xy_sample.mat');
 xy = xy(:, 1:6);
-plot(xy(1,:),xy(2,:), 'r*-');
+plot(xy(1,:),xy(2,:), 'r*');
 
 N = size(xy, 2);
-b = zeros(4, N-2, 2);
+b = zeros(4, N-3, 2);
 % First row
 b(1, 1, :) = xy(:, 1);
 b(2, 1, :) = xy(:, 2);
@@ -21,23 +21,23 @@ b(3, 1, :) = (xy(:, 2) + xy(:, 3))./2;
 b(4, 1, :) = 0.25*xy(:, 1) + 7*xy(:, 2)/12 + xy(:, 3)/6;
 b(1, 2, :) = b(4, 1, :);
 % last row
-b(2, N-2, :) = (xy(:, N-2) + xy(:, N-1))./2;
-b(3, N-2, :) = xy(:, N-1);
-b(4, N-2, :) = xy(:, N);
+b(2, N-3, :) = (xy(:, N-2) + xy(:, N-1))./2;
+b(3, N-3, :) = xy(:, N-1);
+b(4, N-3, :) = xy(:, N);
 
 
-for jj = 2: N-3
-    b(2, jj, :) = 2*xy(:, jj)/3 + xy(:, jj+1)/3;
-    b(3, jj, :) = xy(:, jj)/3 + 2*xy(:, jj+1)/3;
+for jj = 2: N-4
+    b(2, jj, :) = 2*xy(:, jj + 1)/3 + xy(:, jj + 2)/3;
+    b(3, jj, :) = xy(:, jj + 1)/3 + 2*xy(:, jj + 2)/3;
 end
 
-for jj = 2: N - 3
+for jj = 2: N - 4
    b(4, jj, :) = (b(3, jj, :) + b(2, jj + 1, :))./2;
    b(1, jj + 1, :) = b(4, jj, :);
 end
 
 t = 0:0.01:1;
-for i = 1: N
+for i = 1: N-3
     hold on
     b_mat = squeeze(b(:,i,:));
     c_xy = bezier3(t, b_mat');
