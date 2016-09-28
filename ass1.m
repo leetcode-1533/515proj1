@@ -1,15 +1,13 @@
 clear
 % For 6 points at a minimum, 3 sements will be created.
 % For N points, N-3 semetns will be created
-init_point = 4;
-% xy = [0.3, 0.7, 0.1, 0.8, 0.4;
-%        0.1, 0.6, 0.9, 0.5, 0.1];
-% xy = zeros(2, 5);
-for i = 1:4
+init_point = 5; % Minimum initial points, at least 5
+
+% Point Input
+for i = 1:init_point
     [xy(1,i), xy(2,i)] = ginput(1);
 end
 
-% load('xy_sample.mat');
 xy = xy(:, 1:init_point);
 t = 0:0.01:1;
 
