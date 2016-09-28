@@ -3,7 +3,7 @@ clear
 hold on
 axis([0,1,0,1])
 
-iter = 1; % number of iteration
+iter = 6; % number of iteration
 num_points = 8; % number of points, when n = 4, it is the solution for 2.1
 t = 0.5; % t value, usual 0.5
 

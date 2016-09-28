@@ -1,20 +1,20 @@
 clear
+
+hold on
+axis([0,1,0,1])
 % For 6 points at a minimum, 3 sements will be created.
 % For N points, N-3 semetns will be created
 init_point = 5; % Minimum initial points, at least 5
+t = 0:0.01:1; %resolution set as 0.01
 
 % Point Input
 for i = 1:init_point
     [xy(1,i), xy(2,i)] = ginput(1);
+    plot(xy(1,:),xy(2,:), 'c*-'); 
 end
 
 
 xy = xy(:, 1:init_point);
-t = 0:0.01:1; %resolution set as 0.01
-
-hold on
-axis([0,1,0,1])
-plot(xy(1,:),xy(2,:), 'c*-'); 
 
 N = size(xy, 2);
 % For b(i,j,k) 

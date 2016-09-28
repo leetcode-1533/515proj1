@@ -1,0 +1,32 @@
+Group Project for CIS515
+Date: September 27
+Group Members:
+Chenchen Hu 11021747
+Mengyi Cui 59031729 
+Yingjie Luan 18498807
+
+# ass1.m is for Problem 1.1
+configurable parameter:
+init_point: the initial points before the first curve segment drawn. at least 5( with two segments)
+t: curve resolution
+
+slightly different than the note, this program does not need be assigned a final points number. It will assume the last point as final point, and when new point drawn, it will draw 2 curve and erase 1 curve
+
+replace the last curve with new formula(because it is no longer the last curve)
+draw the new last curve
+
+see problem1_explanation.png for explanation of the plot.
+
+used 
+bezier3.m for ploting curve segment of degree 3
+
+
+# ass2.m is for Problem 2.1 and Problem 2.2
+configurable parameter:
+iter: subdividing time, 1,2,3...
+num_points: number of points, when n = 4, it is for 2.1
+t: interpolation value, usually 0.5
+
+used
+bezier_lineappro.m for doing the iteration
+bezier_single_line.m for splitting 1 set of control points into 2
